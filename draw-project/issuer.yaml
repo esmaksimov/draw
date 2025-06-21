@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: draw-cert
+  namespace: draw
+spec:
+  secretName: draw-tls
+  issuerRef:
+    name: letsencrypt-dns-route53
+    kind: ClusterIssuer
+  commonName: draw.awspythoncourses.org
+  dnsNames:
+    - draw.awspythoncourses.org
