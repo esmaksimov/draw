@@ -7,14 +7,14 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`draw.awspythoncourses.org`) && PathPrefix(`/socket.io/`)
-      kind: Rule
+    - kind: Rule
+      match: Host(`draw.awspythoncourses.org`) && PathPrefix(`/socket.io/`)
       services:
         - name: excalidraw
           port: 3000
           protocol: http
-    - match: Host(`draw.awspythoncourses.org`)
-      kind: Rule
+    - kind: Rule
+      match: Host(`draw.awspythoncourses.org`)
       services:
         - name: excalidraw
           port: 4180
