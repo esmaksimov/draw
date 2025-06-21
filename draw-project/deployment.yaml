@@ -21,9 +21,6 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /usr/src/app/data
-          env:
-            - name: DISABLE_REGISTRATION
-              value: "true"
       volumes:
         - name: data
           persistentVolumeClaim:
