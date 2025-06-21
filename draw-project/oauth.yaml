@@ -22,13 +22,20 @@ spec:
             - --upstream=file:///dev/null
             - --redirect-url=https://draw.awspythoncourses.org/oauth2/callback
             - --email-domain=gmail.com
+            - --authenticated-emails-file=/etc/oauth2/authenticated-emails.txt
             - --cookie-secret=$(OAUTH2_COOKIE_SECRET)
             - --client-id=$(OAUTH2_CLIENT_ID)
             - --client-secret=$(OAUTH2_CLIENT_SECRET)
-            - --allowed-email=you@gmail.com
-            - --allowed-email=wife@gmail.com
           envFrom:
             - secretRef:
                 name: oauth2-secret
           ports:
             - containerPort: 4180
+          volumeMounts:
+            - name: email-list
+              mountPath: /etc/oauth2
+              readOnly: true
+      volumes:
+        - name: email-list
+          configMap:
+            name: oauth2-allowed-emails
