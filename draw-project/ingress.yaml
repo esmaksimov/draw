@@ -12,12 +12,10 @@ spec:
       services:
         - name: excalidraw
           port: 3000
-          protocol: http
     - kind: Rule
       match: Host(`draw.awspythoncourses.org`)
       services:
         - name: excalidraw
           port: 4180
-          protocol: http
   tls:
     secretName: draw-tls
