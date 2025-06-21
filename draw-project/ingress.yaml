@@ -1,35 +1,18 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: draw-ingress
+  name: spacedeck-ingress
   namespace: draw
 spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`draw.awspythoncourses.org`) && PathPrefix(`/api`)
+    - match: Host(`board.awspythoncourses.org`)
       kind: Rule
       middlewares:
         - name: draw-oauth
       services:
-        - name: excalidraw-backend
-          port: 5000
-
-    - match: Host(`draw.awspythoncourses.org`) && PathPrefix(`/socket.io`)
-      kind: Rule
-      middlewares:
-        - name: draw-oauth
-      services:
-        - name: excalidraw-backend
-          port: 5000
-
-    - match: Host(`draw.awspythoncourses.org`)
-      kind: Rule
-      middlewares:
-        - name: draw-oauth
-      services:
-        - name: excalidraw-frontend
-          port: 80
-
+        - name: spacedeck
+          port: 9666
   tls:
     secretName: draw-tls

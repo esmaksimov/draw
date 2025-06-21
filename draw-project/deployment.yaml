@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spacedeck
+  namespace: draw
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spacedeck
+  template:
+    metadata:
+      labels:
+        app: spacedeck
+    spec:
+      containers:
+        - name: spacedeck
+          image: akito13/spacedeck:latest
+          ports:
+            - containerPort: 9666
+          volumeMounts:
+            - name: data
+              mountPath: /usr/src/app/data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: spacedeck-data
