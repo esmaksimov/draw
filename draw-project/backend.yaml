@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: excalidraw/excalidraw-backend:latest
+          image: jitsi/excalidraw-backend:latest
           ports:
             - containerPort: 5000
           volumeMounts:
