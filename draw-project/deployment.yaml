@@ -1,27 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spacedeck
+  name: excalidraw
   namespace: draw
+  labels:
+    app: excalidraw
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: spacedeck
+      app: excalidraw
   template:
     metadata:
       labels:
-        app: spacedeck
+        app: excalidraw
     spec:
       containers:
-        - name: spacedeck
-          image: akito13/spacedeck:latest
+        - name: frontend
+          image: excalidraw/excalidraw:latest
           ports:
-            - containerPort: 4180
-          volumeMounts:
-            - name: data
-              mountPath: /app/config
-      volumes:
-        - name: data
-          persistentVolumeClaim:
-            claimName: spacedeck-data
+            - containerPort: 80
+        - name: collab-server
+          image: excalidraw/excalidraw-room:latest
+          env:
+            - name: PORT
+              value: "3000"
+          ports:
+            - containerPort: 3000
