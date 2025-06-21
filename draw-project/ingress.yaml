@@ -23,12 +23,6 @@ spec:
         - name: excalidraw-backend
           port: 5000
 
-    - match: Host(`draw.awspythoncourses.org`) && PathPrefix(`/oauth2`)
-      kind: Rule
-      services:
-        - name: oauth2-proxy
-          port: 4180
-
     - match: Host(`draw.awspythoncourses.org`)
       kind: Rule
       middlewares:

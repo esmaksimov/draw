@@ -19,13 +19,13 @@ spec:
           args:
             - --provider=google
             - --http-address=0.0.0.0:4180
-            - --upstream=file:///dev/null
             - --redirect-url=https://draw.awspythoncourses.org/oauth2/callback
             - --email-domain=gmail.com
             - --authenticated-emails-file=/etc/oauth2/authenticated-emails.txt
             - --cookie-secret=$(OAUTH2_COOKIE_SECRET)
             - --client-id=$(OAUTH2_CLIENT_ID)
             - --client-secret=$(OAUTH2_CLIENT_SECRET)
+            - --upstream=http://excalidraw-frontend.draw.svc.cluster.local:80
           envFrom:
             - secretRef:
                 name: oauth2-secret
