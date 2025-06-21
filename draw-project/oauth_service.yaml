@@ -1,12 +1,10 @@
 apiVersion: v1
 kind: Service
-labels:
-  app: oauth2-proxy
 metadata:
   name: oauth2-proxy
   namespace: draw
-labels:
-  app: oauth2-proxy
+  labels:
+    app: oauth2-proxy
 spec:
   selector:
     app: oauth2-proxy
@@ -14,4 +12,3 @@ spec:
     - protocol: TCP
       port: 4180
       targetPort: 4180
-  type: ClusterIP
