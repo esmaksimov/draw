@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: excalidraw-backend
+  namespace: draw
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: excalidraw-backend
+  template:
+    metadata:
+      labels:
+        app: excalidraw-backend
+    spec:
+      containers:
+        - name: backend
+          image: excalidraw/excalidraw-backend:latest
+          ports:
+            - containerPort: 5000
+          volumeMounts:
+            - name: storage
+              mountPath: /data
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: excalidraw-backend-pvc
