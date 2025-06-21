@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`board.awspythoncourses.org`)
+    - match: Host(`draw.awspythoncourses.org`)
       kind: Rule
       middlewares:
         - name: draw-oauth

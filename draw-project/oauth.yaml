@@ -25,7 +25,7 @@ spec:
             - --cookie-secret=$(OAUTH2_COOKIE_SECRET)
             - --client-id=$(OAUTH2_CLIENT_ID)
             - --client-secret=$(OAUTH2_CLIENT_SECRET)
-            - --upstream=http://excalidraw-frontend:80
+            - --upstream=http://spacedeck:9666
           envFrom:
             - secretRef:
                 name: oauth2-secret
