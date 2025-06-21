@@ -13,21 +13,6 @@ spec:
       labels:
         app: spacedeck
     spec:
-      initContainers:
-        - name: init-db
-          image: busybox
-          command:
-            - sh
-            - -c
-            - |
-              mkdir -p /data
-              if [ ! -f /data/database.sqlite ]; then
-                touch /data/database.sqlite
-                chmod 666 /data/database.sqlite
-              fi
-          volumeMounts:
-            - name: data
-              mountPath: /data
       containers:
         - name: spacedeck
           image: akito13/spacedeck:latest
@@ -35,8 +20,7 @@ spec:
             - containerPort: 4180
           volumeMounts:
             - name: data
-              mountPath: /app/database.sqlite
-              subPath: database.sqlite
+              mountPath: /app/config
       volumes:
         - name: data
           persistentVolumeClaim:
