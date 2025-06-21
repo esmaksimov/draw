@@ -20,7 +20,10 @@ spec:
             - containerPort: 4180
           volumeMounts:
             - name: data
-              mountPath: /usr/src/app/data
+              mountPath: /app
+          env:
+            - name: INVITE_CODE
+              value: "secret"
       volumes:
         - name: data
           persistentVolumeClaim:
