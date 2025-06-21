@@ -20,11 +20,7 @@ spec:
             - containerPort: 4180
           volumeMounts:
             - name: data
-              mountPath: /app/database.sqlite
-              subPath: database.sqlite
-          env:
-            - name: INVITE_CODE
-              value: "secret"
+              mountPath: /app
       volumes:
         - name: data
           persistentVolumeClaim:
