@@ -8,5 +8,5 @@ spec:
     app: spacedeck
   ports:
     - protocol: TCP
-      port: 9666
-      targetPort: 9666
+      port: 4180
+      targetPort: 4180

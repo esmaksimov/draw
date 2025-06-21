@@ -9,10 +9,8 @@ spec:
   routes:
     - match: Host(`draw.awspythoncourses.org`)
       kind: Rule
-      middlewares:
-        - name: draw-oauth
       services:
         - name: spacedeck
-          port: 9666
+          port: 4180
   tls:
     secretName: draw-tls
