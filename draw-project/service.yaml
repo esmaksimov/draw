@@ -9,4 +9,4 @@ spec:
   ports:
     - protocol: TCP
       port: 4180
-      targetPort: 4180
+      targetPort: 9666
