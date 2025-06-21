@@ -18,10 +18,3 @@ spec:
           image: jitsi/excalidraw-backend:latest
           ports:
             - containerPort: 5000
-          volumeMounts:
-            - name: storage
-              mountPath: /data
-      volumes:
-        - name: storage
-          persistentVolumeClaim:
-            claimName: excalidraw-backend-pvc
