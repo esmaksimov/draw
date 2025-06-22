@@ -9,8 +9,5 @@ spec:
   routes:
     - kind: Rule
       match: Host(`draw.awspythoncourses.org`)
-      services:
-        - name: excalidraw
-          port: 9800
   tls:
     secretName: draw-tls
