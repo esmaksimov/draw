@@ -8,11 +8,6 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`draw.awspythoncourses.org`) && PathPrefix(`/socket.io/`)
-      services:
-        - name: excalidraw
-          port: 3000
-    - kind: Rule
       match: Host(`draw.awspythoncourses.org`)
       services:
         - name: excalidraw

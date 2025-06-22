@@ -20,7 +20,7 @@ spec:
           image: excalidraw/excalidraw:latest
           env:
             - name: REACT_APP_WS_SERVER_URL
-              value: "wss://draw.awspythoncourses.org/socket.io/"
+              value: "http://localhost:3000"
           ports:
             - containerPort: 80
         - name: collab-server
