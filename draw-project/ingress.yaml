@@ -11,6 +11,6 @@ spec:
       match: Host(`draw.awspythoncourses.org`)
       services:
         - name: excalidraw
-          port: 4180
+          port: 9800
   tls:
     secretName: draw-tls
