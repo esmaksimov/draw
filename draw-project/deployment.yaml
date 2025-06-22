@@ -17,6 +17,9 @@ spec:
         - name: excalidraw
           image: s1k0de/excalidraw:latest
         - name: excalidraw-backend
-          image: s1k0de/excalidraw-room:latest
+          image: excalidraw/excalidraw-room:latest
           ports:
             - containerPort: 3000
+          env:
+        - name: PORT
+          value: "3000"
