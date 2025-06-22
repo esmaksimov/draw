@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: excalidraw
   namespace: draw
-  labels:
-    app: excalidraw
 spec:
   replicas: 1
   selector:
@@ -16,17 +14,7 @@ spec:
         app: excalidraw
     spec:
       containers:
-        - name: frontend
-          image: excalidraw/excalidraw:latest
-          env:
-            - name: REACT_APP_WS_SERVER_URL
-              value: "http://localhost:3000"
-          ports:
-            - containerPort: 80
-        - name: collab-server
-          image: excalidraw/excalidraw-room:latest
-          env:
-            - name: PORT
-              value: "3000"
+        - name: excalidraw
+          image: s1k0de/excalidraw:latest
           ports:
             - containerPort: 3000
